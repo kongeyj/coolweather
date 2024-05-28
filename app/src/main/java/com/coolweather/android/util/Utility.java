@@ -5,6 +5,7 @@ import android.text.TextUtils;
 import com.coolweather.android.db.City;
 import com.coolweather.android.db.County;
 import com.coolweather.android.db.Province;
+import com.google.gson.Gson;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -69,9 +70,9 @@ public class Utility {
                 for (int i = 0; i < allCounties.length(); i++) {
                     JSONObject countyObject = allCounties.getJSONObject(i);
                     County county=new County();
-                   county.setCountyName(countyObject.getString("name"));
-                   county.setWeatherId(countyObject.getString("weather_id"));
-                   county.setCityId(cityId);
+                    county.setCountyName(countyObject.getString("name"));
+                    county.setWeatherId(countyObject.getString("weather_id"));
+                    county.setCityId(cityId);
                     county.save();
 
                 }
@@ -83,7 +84,46 @@ public class Utility {
         return false;
     }
 
+    private static Gson gson=new Gson();
+    public static Forecast handleForecastResponse(String response) {
+        try {
+            Forecast forecast = gson.fromJson(response, Forecast.class);
+            return forecast;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
 
+    public static AQI handleAQIResponse(String response) {
+        try {
+            AQI aqi = gson.fromJson(response, AQI.class);
+            return aqi;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public static Suggest handleSuggestResponse(String response) {
+        try {
+            Suggest suggest = gson.fromJson(response, Suggest.class);
+            return suggest;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public static NowWeather handleNowWeatherResponse(String response) {
+        try {
+            NowWeather nowWeather = gson.fromJson(response, NowWeather.class);
+            return nowWeather;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
 
 }
 
