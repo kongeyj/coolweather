@@ -32,7 +32,7 @@ import okhttp3.Callback;
 import okhttp3.Response;
 
 public class WeatherActivity extends AppCompatActivity {
-    ActivityWeatherBinding binding;
+ActivityWeatherBinding binding;
     public static final String FORECAST_URL="https://devapi.qweather.com/v7/weather/7d";
     public static final String AQI_URL="https://devapi.qweather.com/v7/air/now";
     public static final String SUGGEST_URL="https://devapi.qweather.com/v7/indices/1d";
@@ -75,7 +75,7 @@ public class WeatherActivity extends AppCompatActivity {
     }
 
     private void loadBingPic() {
-        String url="https://api.xygeng.cn/openapi/bing/";
+       String url="https://api.xygeng.cn/openapi/bing/";
         HttpUtil.sendOkHttpRequest(url, new Callback() {
             @Override
             public void onFailure(@NotNull Call call, @NotNull IOException e) {

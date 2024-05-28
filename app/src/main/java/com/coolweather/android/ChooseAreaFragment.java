@@ -79,7 +79,7 @@ public class ChooseAreaFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        binding= ChooseAreaBinding.inflate(inflater,container,false);
+        binding=ChooseAreaBinding.inflate(inflater,container,false);
         adapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_list_item_1, dataList);
         binding.listView.setAdapter(adapter);
 
@@ -103,7 +103,21 @@ public class ChooseAreaFragment extends Fragment {
             }else if(currentLevel==LEVEL_CITY){
                 selectedCity=cityList.get(position);
                 queryCounties();
+            }else if (currentLevel == LEVEL_COUNTY) {
+
+                String weatherId = countyList.get(position).getWeatherId();
+                Intent intent = new Intent(getActivity(), WeatherActivity.
+                        class);
+                intent.putExtra("current_province",selectedProvince.getProvinceName());
+                intent.putExtra("current_city",selectedCity.getCityName());
+                intent.putExtra("current_county",countyList.get(position).getCountyName());
+                intent.putExtra("weather_id", weatherId);
+                startActivity(intent);
+                getActivity().finish();
             }
+
+
+
         });
         binding.backButton.setOnClickListener(v->{
             if(currentLevel==LEVEL_COUNTY){
