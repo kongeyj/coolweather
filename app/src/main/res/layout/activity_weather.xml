@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/purple_500"
+    tools:context=".WeatherActivity">
+    <ImageView
+        android:id="@+id/bing_pic_img"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop" />
+
+
+    <ScrollView
+        android:id="@+id/weather_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:overScrollMode="never"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:fitsSystemWindows="true"
+            >
+
+            <!--           1 头布局 -->
+            <include
+                android:id="@+id/include_title"
+                layout="@layout/title" />
+            <!--  2 当前天气信息的布局 -->
+            <include
+                android:id="@+id/include_now"
+                layout="@layout/now" />
+            <!--3 未来几天天气信息的布局  还需要 未来天气信息的子项布局forecast_item.xml  -->
+            <include
+                android:id="@+id/include_forecast"
+                layout="@layout/forecast" />
+            <!--4 空气质量信息的布局 -->
+            <include
+                android:id="@+id/include_aqi"
+                layout="@layout/aqi" />
+            <!--生活建议信息的布局-->
+            <include
+                android:id="@+id/include_suggestion"
+                layout="@layout/suggestion" />
+
+        </LinearLayout>
+
+    </ScrollView>
+</FrameLayout>

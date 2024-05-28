@@ -14,7 +14,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.bumptech.glide.Glide;
 import com.coolweather.android.databinding.ActivityWeatherBinding;
+import com.coolweather.android.gson.AQI;
 import com.coolweather.android.gson.BingPic;
+import com.coolweather.android.gson.Forecast;
+import com.coolweather.android.gson.NowWeather;
+import com.coolweather.android.gson.Suggest;
 import com.coolweather.android.util.HttpUtil;
 import com.coolweather.android.util.Utility;
 import com.google.gson.Gson;

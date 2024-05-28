@@ -5,6 +5,10 @@ import android.text.TextUtils;
 import com.coolweather.android.db.City;
 import com.coolweather.android.db.County;
 import com.coolweather.android.db.Province;
+import com.coolweather.android.gson.AQI;
+import com.coolweather.android.gson.Forecast;
+import com.coolweather.android.gson.NowWeather;
+import com.coolweather.android.gson.Suggest;
 import com.google.gson.Gson;
 
 import org.json.JSONArray;
